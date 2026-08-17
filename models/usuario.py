@@ -8,6 +8,22 @@ class Usuario:
         self.activo = activo
         self.fecha_creacion = fecha_creacion
 
+    @property
+    def username(self):
+        return self.nombre_usuario
+
+    @property
+    def full_name(self):
+        return self.nombre_completo
+
+    @property
+    def is_active(self):
+        return self.activo
+
+    @property
+    def created_at(self):
+        return self.fecha_creacion
+
     @classmethod
     def desde_fila(cls, fila):
         if not fila:
@@ -23,4 +39,7 @@ class Usuario:
         )
 
     def es_admin(self):
+        return self.rol == "Administrador"
+
+    def is_admin(self):
         return self.rol == "Administrador"

@@ -279,10 +279,10 @@ class VistaVentas(ctk.CTkFrame):
         try:
             venta, ticket_texto, ticket_archivo = self.controlador_ventas.procesar_venta(
                 cliente_id=cli_id,
-                user_id=usr_id,
-                payment_method=metodo_pago,
-                cart_items=self.carrito,
-                discount=desc
+                usuario_id=usr_id,
+                metodo_pago=metodo_pago,
+                items_carrito=self.carrito,
+                descuento=desc
             )
 
             self.carrito.clear()

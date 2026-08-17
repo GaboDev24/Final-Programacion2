@@ -1,0 +1,24 @@
+============================================
+         SISTEMA DE GESTION DE VENTAS       
+             CONTROL DE STOCK Y TPV         
+          Desarrollado por: Gabriel Reina   
+                     2do año                
+============================================
+ COMPROBANTE: VTA-2026-00001
+ FECHA: 2026-08-17 16:14:04
+ ATENDIDO POR: Gabriel Reina - Administrador
+--------------------------------------------
+ CLIENTE: Consumidor Final
+ DOC/CUIT: 0
+ FORMA DE PAGO: Efectivo
+============================================
+CANT DESCRIPCION            P.UNIT    SUBTOT
+--------------------------------------------
+1    Mantenimiento Prev..$15000.00$ 15000.00
+--------------------------------------------
+SUBTOTAL:                     $    15000.00
+DESCUENTO:                    $        0.00
+TOTAL A PAGAR:                $    15000.00
+============================================
+     GRACIAS POR SU COMPRA VUELVA PRONTO    
+============================================

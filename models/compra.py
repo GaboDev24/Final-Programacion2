@@ -9,6 +9,26 @@ class DetalleCompra:
         self.nombre_producto = nombre_producto
         self.codigo_producto = codigo_producto
 
+    @property
+    def product_id(self):
+        return self.producto_id
+
+    @property
+    def unit_cost(self):
+        return self.costo_unitario
+
+    @property
+    def quantity(self):
+        return self.cantidad
+
+    @property
+    def product_name(self):
+        return self.nombre_producto
+
+    @property
+    def product_code(self):
+        return self.codigo_producto
+
     @classmethod
     def desde_fila(cls, fila):
         if not fila:
@@ -37,6 +57,18 @@ class Compra:
         self.razon_social_proveedor = razon_social_proveedor
         self.nombre_usuario = nombre_usuario
         self.items = items if items is not None else []
+
+    @property
+    def receipt_number(self):
+        return self.numero_comprobante
+
+    @property
+    def supplier_id(self):
+        return self.proveedor_id
+
+    @property
+    def user_id(self):
+        return self.usuario_id
 
     @classmethod
     def desde_fila(cls, fila):

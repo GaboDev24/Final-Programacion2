@@ -9,6 +9,22 @@ class Proveedor:
         self.direccion = direccion
         self.fecha_creacion = fecha_creacion
 
+    @property
+    def company_name(self):
+        return self.razon_social
+
+    @property
+    def contact_name(self):
+        return self.contacto
+
+    @property
+    def phone(self):
+        return self.telefono
+
+    @property
+    def address(self):
+        return self.direccion
+
     @classmethod
     def desde_fila(cls, fila):
         if not fila:

@@ -9,6 +9,26 @@ class DetalleVenta:
         self.cantidad = int(cantidad)
         self.subtotal = float(subtotal) if subtotal else round(self.precio_unitario * self.cantidad, 2)
 
+    @property
+    def product_id(self):
+        return self.producto_id
+
+    @property
+    def product_code(self):
+        return self.codigo_producto
+
+    @property
+    def product_name(self):
+        return self.nombre_producto
+
+    @property
+    def unit_price(self):
+        return self.precio_unitario
+
+    @property
+    def quantity(self):
+        return self.cantidad
+
     @classmethod
     def desde_fila(cls, fila):
         if not fila:
@@ -38,6 +58,26 @@ class Venta:
         self.nombre_cliente = nombre_cliente
         self.nombre_usuario = nombre_usuario
         self.items = items if items is not None else []
+
+    @property
+    def invoice_number(self):
+        return self.numero_factura
+
+    @property
+    def user_id(self):
+        return self.usuario_id
+
+    @property
+    def payment_method(self):
+        return self.metodo_pago
+
+    @property
+    def discount(self):
+        return self.descuento
+
+    @property
+    def created_at(self):
+        return self.fecha
 
     @classmethod
     def desde_fila(cls, fila):

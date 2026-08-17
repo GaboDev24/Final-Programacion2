@@ -19,13 +19,24 @@ class ControladorVentas:
         anio = datetime.now().year
         return f"VTA-{anio}-{siguiente_id:05d}"
 
-    def procesar_venta(self, cliente_id, usuario_id, metodo_pago, items_carrito, descuento=0.0):
+    def procesar_venta(self, cliente_id=1, usuario_id=None, metodo_pago="Efectivo", items_carrito=None, descuento=0.0, **kwargs):
+        if "user_id" in kwargs and kwargs["user_id"] is not None:
+            usuario_id = kwargs["user_id"]
+        if "client_id" in kwargs and kwargs["client_id"] is not None:
+            cliente_id = kwargs["client_id"]
+        if "payment_method" in kwargs and kwargs["payment_method"] is not None:
+            metodo_pago = kwargs["payment_method"]
+        if "cart_items" in kwargs and kwargs["cart_items"] is not None:
+            items_carrito = kwargs["cart_items"]
+        if "discount" in kwargs and kwargs["discount"] is not None:
+            descuento = kwargs["discount"]
+
         if not items_carrito:
             raise ValueError("El carrito de compras está vacío.")
         if not usuario_id:
             raise ValueError("No hay un usuario autenticado para registrar la venta.")
 
-        metodos_validos = ["Efectivo", "Tarjeta de Débito", "Tarjeta de Crédito", "Transferencia", "Cuenta Corriente"]
+        metodos_validos = ["Efectivo", "Tarjeta de Débito", "Tarjeta de Crédito", "Transferencia", "Cuenta Corriente", "Tarjeta de Debito", "Tarjeta de Credito"]
         if metodo_pago not in metodos_validos:
             metodo_pago = "Efectivo"
 
@@ -41,11 +52,12 @@ class ControladorVentas:
             items_validados = []
 
             for item in items_carrito:
-                producto_id = item["producto_id"]
-                cantidad = item["cantidad"]
+                producto_id = item.get("producto_id", item.get("product_id"))
+                cantidad = int(item.get("cantidad", item.get("quantity", 1)))
+                nom_prod = item.get("nombre_producto", item.get("product_name", item.get("name", "Producto")))
 
                 if cantidad <= 0:
-                    raise ValueError(f"La cantidad para '{item['nombre_producto']}' debe ser mayor a 0.")
+                    raise ValueError(f"La cantidad para '{nom_prod}' debe ser mayor a 0.")
 
                 cursor.execute("SELECT id, codigo, nombre, precio_venta, stock FROM productos WHERE id = ? AND activo = 1", (producto_id,))
                 prod = cursor.fetchone()
