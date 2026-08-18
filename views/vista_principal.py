@@ -50,7 +50,7 @@ class VistaPrincipal(ctk.CTkFrame):
         lbl_sublogo = ctk.CTkLabel(f_logo, text="Ventas y Control de Stock", font=FUENTE_PEQUENA, text_color=TEXTO_MUTED)
         lbl_sublogo.pack(anchor="w")
 
-        lbl_autor = ctk.CTkLabel(f_logo, text="Gabriel Reina - 2do ano", font=("Segoe UI", 10, "bold"), text_color=TEXTO_SECUNDARIO)
+        lbl_autor = ctk.CTkLabel(f_logo, text="Gabriel Reina — 2do año", font=("Segoe UI", 10, "bold"), text_color=TEXTO_SECUNDARIO)
         lbl_autor.pack(anchor="w", pady=(2, 0))
 
         sep1 = ctk.CTkFrame(self.sidebar, fg_color=BORDE_COLOR, height=1)

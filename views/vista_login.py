@@ -31,7 +31,7 @@ class VistaLogin(ctk.CTkFrame):
         lbl_sub = ctk.CTkLabel(encabezado, text="Control de Ventas y Stock", font=FUENTE_NORMAL, text_color=TEXTO_SECUNDARIO)
         lbl_sub.pack(pady=(2, 4))
 
-        lbl_autor = ctk.CTkLabel(encabezado, text="Gabriel Reina - 2do ano", font=FUENTE_PEQUENA, text_color=TEXTO_MUTED)
+        lbl_autor = ctk.CTkLabel(encabezado, text="Gabriel Reina — 2do año", font=FUENTE_PEQUENA, text_color=TEXTO_MUTED)
         lbl_autor.pack()
 
         cuerpo = ctk.CTkFrame(contenedor, fg_color="transparent")
@@ -40,7 +40,7 @@ class VistaLogin(ctk.CTkFrame):
         self.campo_usuario = CampoEntrada(cuerpo, etiqueta="USUARIO", placeholder="Ej: admin o vendedor", valor_inicial="admin")
         self.campo_usuario.pack(fill="x", pady=(0, 14))
 
-        self.campo_clave = CampoEntrada(cuerpo, etiqueta="CONTRASENA", placeholder="••••••••", es_password=True, valor_inicial="admin123")
+        self.campo_clave = CampoEntrada(cuerpo, etiqueta="CONTRASEÑA", placeholder="••••••••", es_password=True, valor_inicial="admin123")
         self.campo_clave.pack(fill="x", pady=(0, 20))
 
         self.btn_ingresar = BotonPrimario(cuerpo, text="INICIAR SESION", command=self._ejecutar_login, height=42)

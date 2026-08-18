@@ -151,7 +151,7 @@ class VistaUsuarios(ctk.CTkFrame):
         c_usuario = CampoEntrada(cuerpo, etiqueta="Nombre de Usuario", placeholder="Ej: jsmith", valor_inicial=usr_val)
         c_usuario.pack(fill="x", pady=4)
 
-        c_clave = CampoEntrada(cuerpo, etiqueta="Contrasena" if not es_edicion else "Nueva Contrasena (dejar en blanco para mantener)", placeholder="••••••••", es_password=True)
+        c_clave = CampoEntrada(cuerpo, etiqueta="Contraseña" if not es_edicion else "Nueva Contraseña (dejar en blanco para mantener)", placeholder="••••••••", es_password=True)
         c_clave.pack(fill="x", pady=4)
 
         nom_val = (usuario.full_name if hasattr(usuario, "full_name") else usuario.nombre_completo) if es_edicion else ""
